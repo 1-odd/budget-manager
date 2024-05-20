@@ -2,12 +2,12 @@ import React from "react";
 import { LogoMobile } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+
 
 
 
 const Header = () => {
- const user = currentUser();
+
 
   return (
     <div className=" p-5 flex justify-between items-center border shadow-sm">
@@ -23,7 +23,7 @@ const Header = () => {
         </Button>
       </SignedOut>
 
-      
+
     </div>
   );
 };
