@@ -14,7 +14,7 @@ datasource db {
 model Budgets {
   id        Int      @id @default(autoincrement())
   name      String 
-  amount    Float
+  amount    String
   icon      String
   createdBy String
 }

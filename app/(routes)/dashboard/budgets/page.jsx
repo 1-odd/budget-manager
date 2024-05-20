@@ -1,11 +1,13 @@
 import React from 'react'
+import BudgetList from './_components/BudgetList'
 
-const page = () => {
+const Budgets = () => {
   return (
-    <div>
-        <h1 className=' font-bold' >My Budgets</h1>
+    <div className='p-10'>
+        <h2 className=" font-bold text-3xl">My Budgets</h2>
+        <BudgetList/>
     </div>
   )
 }
 
-export default page
+export default Budgets

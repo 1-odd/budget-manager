@@ -1,4 +1,5 @@
-import { Inter ,Outfit } from "next/font/google";
+import {  Outfit } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs';
 
@@ -14,7 +15,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
     <html lang="en">
       <body className={outfit.className}>
-        
+        <Toaster/>
         {children}
         
         </body>
