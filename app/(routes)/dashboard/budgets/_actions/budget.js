@@ -66,7 +66,13 @@ const checkUserBudget = async ()=>{
             amount: true,
           },
         },
+
       },
+
+      orderBy:{
+        id: 'desc'
+      }
+
     });
   
     const result = budgets.map(budget => {

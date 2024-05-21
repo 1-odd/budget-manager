@@ -43,7 +43,7 @@ const SideNavbar = () => {
       <LogoMobile />
       <div className="mt-5 ">
         {menuList.map( (menu, index) => (
-          <Link href={menu.path}>
+          <Link key={index} href={menu.path}>
             <h2
               className={`flex gap-2 items-center text-gray-700 font-medium p-5 
                  cursor-pointer rounded-md hover:text-primary hover:bg-blue-200 

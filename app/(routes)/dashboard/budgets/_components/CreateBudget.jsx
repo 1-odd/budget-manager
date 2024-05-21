@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { createNewBudget } from "../_actions/budget";
 import { toast } from "sonner";
 
-const CreateBudget = () => {
+const CreateBudget = ({refreshData}) => {
   const [emoji, setEmoji] = useState("😐");
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
 
@@ -26,6 +26,7 @@ const CreateBudget = () => {
   const handleNewCreateBudget = async () => {
     const res = await createNewBudget(name, amount, emoji);
     if (res) {
+      refreshData();
       toast("New Budget Created!");
     }
   };
@@ -59,7 +60,7 @@ const CreateBudget = () => {
                   {emoji}
                 </Button>
 
-                <div className=" absolute">
+                <div className=" absolute z-20">
                   <EmojiPicker
                     open={openEmojiPicker}
                     onEmojiClick={(e) => {
