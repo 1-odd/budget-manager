@@ -40,3 +40,46 @@ const checkUserBudget = async ()=>{
     })
     return res;
   }
+
+
+
+
+ export const getBudgetList = async () => {
+
+    const user = await currentUser();
+    const userEmail = user.emailAddresses[0].emailAddress;
+    const budgets = await prisma.budgets.findMany({
+      where: {
+        createdBy: userEmail
+      },
+      select: {
+        id: true,
+        name: true,
+        amount:true,
+        icon:true,
+        createdBy: true,
+        _count: {
+          select: { expenses: true },
+        },
+        expenses: {
+          select: {
+            amount: true,
+          },
+        },
+      },
+    });
+  
+    const result = budgets.map(budget => {
+      const totalSpend = budget.expenses.reduce((sum, expense) => sum + expense.amount, 0);
+      const totalItem = budget._count.expenses;
+      
+      return {
+        ...budget,
+        totalSpend,
+        totalItem,
+      };
+    });
+  
+    console.log(result);
+    return result;
+  };

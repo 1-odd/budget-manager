@@ -17,7 +17,16 @@ model Budgets {
   amount    String
   icon      String
   createdBy String
+  expenses  Expenses[]
 }
 
 
 
+model Expenses {
+  id        Int      @id @default(autoincrement())
+  name      String
+  amount    Float @default(0)
+  budgetId  Int
+  Budgets    Budgets  @relation(fields: [budgetId], references: [id])
+  createdAt String
+}
