@@ -107,3 +107,20 @@ export const deleteCurrentBudget = async(budgetId)=>{
     
     }
 }
+
+
+
+export const updateSelectedBudget = async(name , amount , emoji, budgetId )=>{
+    const res = await prisma.budgets.update({
+        where:{
+            id: budgetId
+        },
+        data:{
+            name,
+            amount,
+            icon: emoji
+        }
+    })
+    return res;
+
+}
