@@ -86,3 +86,24 @@ export const deleTeExpense = async (expenseId)=>{
     })
     return result;
 }
+
+
+
+export const deleteCurrentBudget = async(budgetId)=>{
+
+    const deleteExpenses = await prisma.expenses.deleteMany({
+        where:{
+            budgetId: budgetId
+        }
+    })
+
+    if(deleteExpenses){
+        const result = await prisma.budgets.delete({
+            where:{
+                id: budgetId
+            }
+        })
+        return result;
+    
+    }
+}
