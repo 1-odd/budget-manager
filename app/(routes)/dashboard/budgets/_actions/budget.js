@@ -4,7 +4,7 @@
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
@@ -86,6 +86,6 @@ const checkUserBudget = async ()=>{
       };
     });
   
-    console.log(result);
+    
     return result;
   };

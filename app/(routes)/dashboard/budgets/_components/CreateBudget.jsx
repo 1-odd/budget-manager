@@ -88,7 +88,7 @@ const CreateBudget = ({refreshData}) => {
                   </h2>
                   <Input
                     type="number"
-                    placeholder=" $ 123"
+                    placeholder=" ₹ 123"
                     onChange={(e) => {
                       setAmount(e.target.value);
                     }}

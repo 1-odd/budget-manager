@@ -4,7 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 import { LayoutGrid, PiggyBank, ReceiptText, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
+import React, {  } from "react";
 
 const SideNavbar = () => {
   const menuList = [
