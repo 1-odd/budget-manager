@@ -5,12 +5,16 @@ import SideNavbar from './_components/SideNavbar'
 import DashboardHeader from './_components/DashboardHeader'
 import checkUserBudget from './budgets/_actions/budget'
 import { useUser } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
 
 
 
 
 const DashboardLayout = ({children}) => {
+
+  
   const {user} = useUser();
+  
   
 useEffect(() => {
   user && checkUserBudget();
