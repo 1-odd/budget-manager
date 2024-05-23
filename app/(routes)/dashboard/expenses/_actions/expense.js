@@ -124,3 +124,39 @@ export const updateSelectedBudget = async(name , amount , emoji, budgetId )=>{
     return res;
 
 }
+
+export const getAllExpenses = async ()=>{
+    const user = await currentUser();
+    const userEmail = user.emailAddresses[0].emailAddress;
+    
+    const result = await prisma.expenses.findMany({
+        where: {
+          Budgets: {
+            createdBy: userEmail
+          }
+        },
+        select: {
+          id: true,
+          name: true,
+          amount: true,
+          createdAt: true,
+          Budgets: {
+            select: {
+              id: true,
+              createdBy: true,
+            }
+          }
+        },
+        orderBy: {
+          id: 'desc'
+        }
+      });
+    
+      return result;
+    
+}
+
+
+
+
+
