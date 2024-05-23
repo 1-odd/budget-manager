@@ -22,7 +22,10 @@ function Page() {
 
   return (
     <div>
-        <ExpenseListTable expenseList={expensesList} refreshData={()=>allExpenses()} />
+      <h2 className='font-bold text-2xl p-5'>All Expenses Listed Here</h2>
+      <div className='m-5'>
+      <ExpenseListTable expenseList={expensesList} refreshData={()=>allExpenses()} />
+      </div>
     </div>
   )
 }

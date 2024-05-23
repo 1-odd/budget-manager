@@ -14,6 +14,10 @@ const AddExpense = ({budgetId , refreshData }) => {
     const addNewExpense = async ()=>{
         
        const result = await  addExpense(name , amount , budgetId);
+
+       setAmount('');
+        setName('');
+
        if(result){
         refreshData();
         toast.success('New Expense Added')
@@ -21,6 +25,7 @@ const AddExpense = ({budgetId , refreshData }) => {
 
        
     }
+    
 
   return (
     <div className=' border p-5 rounded-lg' >
@@ -30,6 +35,7 @@ const AddExpense = ({budgetId , refreshData }) => {
                     Expense Name
                   </h2>
                   <Input
+                  value={name}
                     placeholder="e.g. Shopping"
                     onChange={(e) => {
                         setName(e.target.value)
@@ -41,6 +47,7 @@ const AddExpense = ({budgetId , refreshData }) => {
                     Expense Amount
                   </h2>
                   <Input type="number"
+                  value={amount}
                     placeholder="e.g. ₹ 1245"
                     onChange={(e) => {
                         setAmount(e.target.value)
@@ -48,7 +55,7 @@ const AddExpense = ({budgetId , refreshData }) => {
                   />
         </div>
         <Button className= ' mt-3 w-full '  
-            onClick={()=>addNewExpense()}
+            onClick={()=>addNewExpense() }
         >Add New Expense</Button>
     </div>
   )
